@@ -12,7 +12,7 @@
 {{alert.message}}
 </div>
 <form name="assetForm" role="form" onsubmit="return false;" ng-show="fields.length > 0">
-	<div ng-repeat="f in fields" class="form-group" ng-if="(!f.domain || f.domain.name.indexOf('NA_Domain') == -1) && hiddenFields.indexOf(f.name) == -1" ng-class="{'has-error': fieldForm.$invalid}">
+	<div ng-repeat="f in fields" class="form-group" ng-if="(!f.domain || f.domain.name.indexOf('PUNR_NA_DOMAIN') == -1) && hiddenFields.indexOf(f.name) == -1" ng-class="{'has-error': fieldForm.$invalid}">
 		<ng-form name="fieldForm">
 			<label class="control-label" ng-if="type != null || f.name === 'FACILITYID'">{{f.alias}}</label>
 			<select name="field" ng-if="f.name === 'CAMPUS' && type != null" ng-model="f.value" ng-options="site as site.name for site in sites track by site.id | orderBy: 'name'" class="form-control input-lg" ng-change="siteSelected()" required>
