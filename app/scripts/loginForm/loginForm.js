@@ -33,7 +33,8 @@ angular
       var deferred = $q.defer()
       $http({
         method: 'POST',
-        url: 'https://mapstest.raleighnc.gov/portal/sharing/generateToken',
+        url: 'https://maps.raleighnc.gov/portal/sharing/generateToken',
+       // url: 'https://mapstest.raleighnc.gov/portal/sharing/generateToken',
         data: $.param(
           {
             request: 'getToken',
