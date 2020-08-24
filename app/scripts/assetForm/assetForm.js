@@ -90,9 +90,11 @@ angular
                       rmname.push(f.attributes.ROOMNAME);
                       arrLength = 0;
                     } else{
-                        var bldg = $scope.sites.filter(function (s) {
-                        arrLength = (s.buildings.length - 1);
-                        return s.buildings[arrLength].name === f.attributes.BUILDING;
+                        var bldg = $scope.sites.filter(function (r) {
+                        if (r.name === f.attributes.CAMPUS){
+                          arrLength = (r.buildings.length - 1);
+                          return r.buildings[arrLength].name === f.attributes.BUILDING;
+                        }
                       });
                         if (bldg.length > 0) {
 
@@ -104,8 +106,10 @@ angular
                             rmname.push(f.attributes.ROOMNAME);
                           }else {
                              var bldg_flr = $scope.sites.filter(function (t) {
-                              arrflrLength = (t.buildings[arrLength].floors.length - 1);
-                             return t.buildings[arrLength].floors[arrflrLength].name === f.attributes.FLOOR;
+                             if (t.name === f.attributes.CAMPUS){
+                                arrflrLength = (t.buildings[arrLength].floors.length - 1);
+                                return t.buildings[arrLength].floors[arrflrLength].name === f.attributes.FLOOR;
+                             }
                           });
                           if (bldg_flr.length >0){
                             bldg_flr = bldg_flr[0];
@@ -114,9 +118,11 @@ angular
                               rmname.push(f.attributes.ROOMNAME);
                             }else{
 
-                              var flr_roomname = $scope.sites.filter(function (t) {
-                                arrflrIdLength = (t.buildings[arrLength].floors[arrflrLength].roomnames.length - 1);
-                                return t.buildings[arrLength].floors[arrflrLength].roomnames[arrflrIdLength].name === f.attributes.ROOMNAME;
+                              var flr_roomname = $scope.sites.filter(function (u) {
+                              if (u.name === f.attributes.CAMPUS){
+                                arrflrIdLength = (u.buildings[arrLength].floors[arrflrLength].roomnames.length - 1);
+                                return u.buildings[arrLength].floors[arrflrLength].roomnames[arrflrIdLength].name === f.attributes.ROOMNAME;
+                              }
                               });
                               if (flr_roomname.length >0){
                                 flr_roomname = flr_roomname[0];
